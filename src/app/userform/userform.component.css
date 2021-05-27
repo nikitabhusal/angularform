@@ -1,0 +1,10 @@
+.column {
+  display: table-cell;
+}
+
+.margin-bottom {
+  margin: 20px;
+}
+.custom-select {
+  margin-right: 15px;
+}
