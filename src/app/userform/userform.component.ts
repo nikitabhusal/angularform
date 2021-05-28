@@ -8,18 +8,18 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class UserformComponent implements OnInit {
   userForm!: FormGroup;
-  genders = ['male', 'female', 'other'];
-  nominees = ['father', 'mother', 'other'];
+  genders = ['Male', 'Female', 'Other'];
+  nominees = ['Father', 'Spouse', 'Daughter'];
   salutations = ['Mr', 'Mrs', 'Miss'];
-  constructor(public formBuilder: FormBuilder) {}
+  constructor(public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      salutation: ['', [Validators.required]],
+      salutation: [this.salutations[0], [Validators.required]],
       name: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      gender: ['male', [Validators.required]],
-      nominee: ['mother', [Validators.required]],
+      gender: ['', [Validators.required]],
+      nominee: ['', [Validators.required]],
     });
   }
 
@@ -56,6 +56,6 @@ export class UserformComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.userForm);
+    console.log(this.userForm.value);
   }
 }
