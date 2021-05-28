@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +8,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class NomineeFormComponent implements OnInit {
   nomineeForm: FormGroup;
+  @Input('nominee') nominee = '';
   salutations = ['Mr', 'Mrs', 'Miss'];
+  salutaionMap = { 'Father': 'Mr', 'Spouse': 'Mrs', 'Daughter': 'Miss' }
   districts = [
     'Ahmednagar',
     'Akola',
@@ -37,15 +39,18 @@ export class NomineeFormComponent implements OnInit {
     'Washim',
     'Yavatmal',
   ];
-  constructor(public formBuilder: FormBuilder) {}
+  constructor(public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    console.log('Heyyyy', this.nominee);
+
     this.nomineeForm = this.formBuilder.group({
-      salutation: ['', [Validators.required]],
+      salutation: ['Mrs', [Validators.required]],
       name: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
+      district: ['', [Validators.required]],
       pincode: ['', [Validators.required]],
       bankname: ['', [Validators.required]],
       accnumber: ['', [Validators.required]],
