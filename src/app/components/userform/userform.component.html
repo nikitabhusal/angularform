@@ -15,6 +15,7 @@
       <input type="text" class="form-control" formControlName="name" placeholder="First Name">
       <div *ngIf="getControl.name.touched && getControl.name.invalid" class="text-danger">
         <div *ngIf="getControl.name.errors.required">Name is required.</div>
+        <div *ngIf="getControl.name.errors.minlength">Name with 3 character required.</div>
       </div>
     </div>
 
@@ -23,6 +24,7 @@
       <input type="text" class="form-control lastname" formControlName="lastname" placeholder="Last Name">
       <div *ngIf="getControl.lastname.touched && getControl.lastname.invalid" class="text-danger">
         <div *ngIf="getControl.lastname.errors.required">Last Name is required.</div>
+         <div *ngIf="getControl.lastname.errors.minlength">Last Name with 3 character required.</div>
       </div>
     </div>
   </div>

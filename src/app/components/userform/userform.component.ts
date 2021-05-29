@@ -17,8 +17,8 @@ export class UserformComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
       salutation: [this.salutations[0], [Validators.required]],
-      name: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
+      name: ['', [Validators.required,Validators.minLength(3)]],
+      lastname: ['', [Validators.required,Validators.minLength(3)]],
       gender: ['', [Validators.required]],
       nominee: ['', [Validators.required]],
     });

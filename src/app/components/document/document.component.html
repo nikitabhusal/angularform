@@ -1,0 +1,25 @@
+<form [formGroup]="documentForm">
+    
+    <div class="row pt-1 mb-4">
+  <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Select Document: </label>
+    <div class="col-sm-7 float-right">
+      <select class=" custom-select form-select " formControlName="bankname">
+        <option selected>Select Document</option>
+        <option *ngFor=" let document of documents">
+          {{document}}
+        </option>
+      </select>
+    </div>
+    <div class=" form-group col-sm-12">
+      <input  class="form-control" formControlName="name" placeholder="First Name">
+      </div>
+
+      <div class="form-group text-center">
+        <button class="btn  btn-primary btn-lg btn-block mt-3"
+          type="submit">Upload Documents</button>
+      </div>
+      
+    </div>
+
+    
+</form>
