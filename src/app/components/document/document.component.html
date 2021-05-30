@@ -1,25 +1,38 @@
-<form [formGroup]="documentForm">
-    
-    <div class="row pt-1 mb-4">
-  <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Select Document: </label>
+<form [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+
+  <div class="row  form-group pt-1 mb-4">
+    <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Select Document: </label>
     <div class="col-sm-7 float-right">
-      <select class=" custom-select form-select " formControlName="bankname">
+      <select class=" custom-select form-select " formControlName="name" (change)="changeName($event)">
         <option selected>Select Document</option>
-        <option *ngFor=" let document of documents">
+        <option *ngFor=" let document of documentNames">
           {{document}}
         </option>
       </select>
     </div>
-    <div class=" form-group col-sm-12">
-      <input  class="form-control" formControlName="name" placeholder="First Name">
+  </div>
+  <div *ngIf="showOtherName()" class="row form-group pt-1 mb-4">
+    <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Document Name: </label>
+    <div class="col-sm-7 float-right">
+      <input class="form-control" formControlName="otherName" placeholder="Document name">
+      <div *ngIf="getControl.otherName.touched && getControl.otherName.invalid" class="text-danger">
+        <div *ngIf="getControl.otherName.errors.required">Document Name is required.</div>
       </div>
-
-      <div class="form-group text-center">
-        <button class="btn  btn-primary btn-lg btn-block mt-3"
-          type="submit">Upload Documents</button>
-      </div>
-      
     </div>
+  </div>
 
-    
+  <div class="row  was-validated form-group pt-1 mb-4">
+    <div class="custom-file">
+      <input type="file" class="form-control custom-file-input" id="validatedCustomFile"
+        (change)="onFileSelected($event)">
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn  btn-primary btn-lg btn-block mt-3" type="submit" [disabled]="!isValidForm()">Upload
+      Documents</button>
+  </div>
+
+
+
 </form>

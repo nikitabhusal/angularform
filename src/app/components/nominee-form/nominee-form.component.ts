@@ -192,15 +192,15 @@ export class NomineeFormComponent implements OnInit {
   ngOnInit(): void {
     this.nomineeForm = this.formBuilder.group({
       salutation: [''],
-      name: ['', [Validators.required,Validators.minLength(3)]],
-      lastname: ['', [Validators.required,Validators.minLength(3),]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      lastname: ['', [Validators.required, Validators.minLength(3),]],
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
       state: ['', [Validators.required]],
       pincode: ['', [Validators.required, Validators.pattern("[0-9]{3,6}")]],
       bankname: ['', [Validators.required]],
-      accnumber: ['', [Validators.required ,Validators.pattern("[0-9]{9,18}")]],
-      IFSCcode: ['', [Validators.required,Validators.pattern("^[A-Z]{4}0[A-Z0-9]{6}$")]],
+      accnumber: ['', [Validators.required, Validators.pattern("[0-9]{9,15}")]],
+      IFSCcode: ['', [Validators.required, Validators.pattern("^[A-Z]{4}0[A-Z0-9]{6}$")]],
     });
 
   }
