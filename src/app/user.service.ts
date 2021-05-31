@@ -1,7 +1,9 @@
 
 export class UserService {
 
-  private userInfo: any = {};
+  private userInfo: any = {
+    documents: []
+  };
 
 
   setUser(user) {
@@ -11,8 +13,13 @@ export class UserService {
   getUser() {
     return this.userInfo;
   }
-  setDocs(documents) {
-    this.userInfo.documents = documents;
+
+
+  addDocs(document) {
+    this.userInfo.documents.push(document);
+  }
+  removeDocs(index) {
+    this.userInfo.documents.splice(index, 1);;
   }
 
   getDocs() {

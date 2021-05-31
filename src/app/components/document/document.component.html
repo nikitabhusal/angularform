@@ -1,3 +1,5 @@
+<h2 class="mb-5 text-center">Document Upload </h2>
+
 <form [formGroup]="documentForm" (ngSubmit)="onSubmit()">
 
   <div class="row  form-group pt-1 mb-4">
@@ -32,7 +34,28 @@
     <button class="btn  btn-primary btn-lg btn-block mt-3" type="submit" [disabled]="!isValidForm()">Upload
       Documents</button>
   </div>
-
-
-
 </form>
+
+<div *ngIf="getDocs().length">
+
+  <h2 class="mb-5 mt-5 text-center">Document Preview</h2>
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Docment Name</th>
+        <th scope="col">File Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doc of getDocs(); index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{doc.name}}</td>
+        <td>{{doc.filename}}</td>
+        <td><i class="fa fa-trash" aria-hidden="true" (click)="deleteDoc(i)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
