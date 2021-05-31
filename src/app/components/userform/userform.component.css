@@ -8,3 +8,6 @@
 .custom-select {
   margin-right: 15px;
 }
+.ng-invalid.ng-touched {
+  border-color: red;
+}

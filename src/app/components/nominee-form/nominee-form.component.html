@@ -15,6 +15,8 @@
       <input type="text" class="form-control" formControlName="name" placeholder="First Name">
       <div *ngIf="getControl.name.touched && getControl.name.invalid" class="text-danger">
         <div *ngIf="getControl.name.errors.required">Name is required.</div>
+        <div *ngIf="getControl.name.errors.minlength">Name with 3 character required.</div>
+
       </div>
     </div>
 
@@ -23,6 +25,7 @@
       <input type="text" class="form-control lastname" formControlName="lastname" placeholder="Last Name">
       <div *ngIf="getControl.lastname.touched && getControl.lastname.invalid" class="text-danger">
         <div *ngIf="getControl.lastname.errors.required">Last Name is required.</div>
+        <div *ngIf="getControl.lastname.errors.minlength">Last Name with 3 character required.</div>
       </div>
     </div>
   </div>
@@ -89,6 +92,7 @@
       <input type="text" class="form-control" formControlName="accnumber">
       <div *ngIf="getControl.accnumber.touched && getControl.accnumber.invalid" class="text-danger">
         <div *ngIf="getControl.accnumber.errors.required">Acc. number is required.</div>
+        <div *ngIf="getControl.accnumber.errors.pattern">Account number must be 9 to 15 digit number.</div>
       </div>
     </div>
   </div>
@@ -98,6 +102,7 @@
       <input type="text" class="form-control" formControlName="IFSCcode">
       <div *ngIf="getControl.IFSCcode.touched && getControl.IFSCcode.invalid" class="text-danger">
         <div *ngIf="getControl.IFSCcode.errors.required">IFSC code is required.</div>
+        <div *ngIf="getControl.IFSCcode.errors.pattern">Please enter valid IFSC code (ex ABCD01A3B56).</div>
       </div>
     </div>
   </div>
@@ -105,4 +110,5 @@
     <button class="btn  btn-primary btn-lg btn-block mt-3" [disabled]="nomineeForm.invalid"
       type="submit">Submit</button>
   </div>
+
 </form>

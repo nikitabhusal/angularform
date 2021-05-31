@@ -1,7 +1,9 @@
 .column {
   display: table-cell;
 }
-
+.ng-invalid.ng-touched {
+  border-color: red;
+}
 .margin-bottom {
   margin: 20px;
 }
