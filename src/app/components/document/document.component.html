@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-group text-center">
-    <button class="btn  btn-primary btn-lg btn-block mt-3" type="submit" [disabled]="!isValidForm()">Upload
+    <button class="btn  btn-primary btn-lg btn-block mt-3" type="submit" [disabled]="!isValidForm()">Add
       Documents</button>
   </div>
 </form>
@@ -58,4 +58,9 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="form-group text-center">
+    <button [routerLink]="['/success']" class="btn  btn-primary btn-lg btn-block mt-3">Upload
+      Documents</button>
+  </div>
 </div>

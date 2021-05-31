@@ -80,7 +80,7 @@ export class DocumentComponent implements OnInit {
   }
 
   getDocs() {
-    return this.userService.getDocs();
+    return this.userService.getDocs() || [];
   }
 
   deleteDoc(index) {

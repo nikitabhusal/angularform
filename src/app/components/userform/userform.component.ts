@@ -60,7 +60,10 @@ export class UserformComponent implements OnInit {
 
   submitAll(values) {
     this.userDetails = this.userForm.value;
+    this.userDetails.id = Math.floor(100000000 + Math.random() * 900000000);
     this.userDetails.nomineeDetails = values;
+    this.userDetails.documents = [];
+
     this.userService.setUser(this.userDetails)
     console.log("On Submit ", this.userService.getUser())
     alert('Submitted')
