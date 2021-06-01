@@ -16,6 +16,7 @@
       <div *ngIf="getControl.name.touched && getControl.name.invalid" class="text-danger">
         <div *ngIf="getControl.name.errors.required">Name is required.</div>
         <div *ngIf="getControl.name.errors.minlength">Name with 3 character required.</div>
+        <div *ngIf="getControl.name.errors.maxlength">Maximum length  is 15.</div>
       </div>
     </div>
 
