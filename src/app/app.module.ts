@@ -9,10 +9,12 @@ import { NomineeFormComponent } from './components/nominee-form/nominee-form.com
 import { DocumentComponent } from './components/document/document.component';
 import { FormDetailsComponent } from './components/form-details/form-details.component';
 import { UserService } from './user.service';
+import { NumberDirective } from './directives/number.directive';
+import { NameDirective } from './directives/name.directive';
 
 
 @NgModule({
-  declarations: [AppComponent, UserformComponent, NomineeFormComponent, DocumentComponent, FormDetailsComponent],
+  declarations: [AppComponent, UserformComponent, NomineeFormComponent, DocumentComponent, FormDetailsComponent,NumberDirective,NameDirective],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [UserService],
   bootstrap: [AppComponent],
