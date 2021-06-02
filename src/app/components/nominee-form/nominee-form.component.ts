@@ -7,10 +7,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./nominee-form.component.css'],
 })
 export class NomineeFormComponent implements OnInit {
-  nomineeForm: FormGroup;
-  @Input('nominee') nominee = '';
-  @Output() nomineeSubmit = new EventEmitter<number>();
-  salutaionMap = { 'Father': 'Mr', 'Spouse': 'Mrs', 'Daughter': 'Miss' }
+  @Input('nomineeForm') nomineeForm: FormGroup;
+  @Input('nomineeSal') nomineeSal = '';
   states = ["Andaman and Nicobar Islands",
     "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh",
     "Dadra and Nagar Haveli", "Daman and Diu", "Delhi", "Goa", "Gujarat", "Haryana",
@@ -190,18 +188,6 @@ export class NomineeFormComponent implements OnInit {
   constructor(public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.nomineeForm = this.formBuilder.group({
-      salutation: [''],
-      name: ['', [Validators.required, Validators.minLength(3)],Validators.maxLength(15)],
-      lastname: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(15)]],
-      address: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      pincode: ['', [Validators.required, Validators.pattern("[0-9]{3,6}")]],
-      bankname: ['', [Validators.required]],
-      accnumber: ['', [Validators.required, Validators.pattern("[0-9]{9,15}")]],
-      IFSCcode: ['', [Validators.required, Validators.pattern("^[A-Z]{4}0[A-Z0-9]{6}$")]],
-    });
 
   }
 
@@ -209,17 +195,11 @@ export class NomineeFormComponent implements OnInit {
     return this.nomineeForm.controls;
   }
 
-  onSubmit() {
-    this.changesalutation()
-    this.nomineeSubmit.emit(this.nomineeForm.value)
-  }
   get salutation() {
     return this.nomineeForm.get('salutation');
   }
 
-  changesalutation() {
-    this.nomineeForm.value.salutation = this.salutaionMap[this.nominee]
-  }
+
   get state() {
     return this.nomineeForm.get('state');
   }

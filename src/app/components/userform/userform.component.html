@@ -16,7 +16,7 @@
       <div *ngIf="getControl.name.touched && getControl.name.invalid" class="text-danger">
         <div *ngIf="getControl.name.errors.required">Name is required.</div>
         <div *ngIf="getControl.name.errors.minlength">Name with 3 character required.</div>
-        <div *ngIf="getControl.name.errors.maxlength">Maximum length  is 15.</div>
+        <div *ngIf="getControl.name.errors.maxlength">Maximum length is 15.</div>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
       <div *ngIf="getControl.lastname.touched && getControl.lastname.invalid" class="text-danger">
         <div *ngIf="getControl.lastname.errors.required">Last Name is required.</div>
         <div *ngIf="getControl.lastname.errors.minlength">Last Name with 3 character required.</div>
-        <div *ngIf="getControl.lastname.errors.maxlength">Maximum length  is 15.</div>
+        <div *ngIf="getControl.lastname.errors.maxlength">Maximum length is 15.</div>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
   <div class="row form-group pt-1 mb-4">
     <label class="col-sm-6 align-middle control-label mt-auto  mb-auto ">Select Nominee: </label>
     <div class="col-sm-6 float-right">
-      <select class="custom-select  form-select" formControlName="nominee">
+      <select class="custom-select  form-select" formControlName="nominee" (change)="changeNomineeSalutation()">
         <option selected>Select nominee</option>
         <option *ngFor="let nominee of nominees">
           {{nominee}}
@@ -53,7 +53,11 @@
       </select>
     </div>
   </div>
-  <app-nominee-form (nomineeSubmit)="submitAll($event)" [(nominee)]="userForm.value.nominee">
+  <app-nominee-form [nomineeForm]="userForm.get('nomineeForm')" [(nomineeSal)]="nomineeSal">
   </app-nominee-form>
+  <div class="form-group text-center">
+    <button class="btn  btn-primary btn-lg btn-block mt-3"
+      [disabled]="userForm.invalid || userForm.get('nomineeForm').invalid" type="submit">Submit</button>
+  </div>
 
 </form>
