@@ -11,9 +11,7 @@ export class NameDirective {
   @HostListener('input') onInputChange(event) {
     const initalValue = this._el.nativeElement.value;
     this._el.nativeElement.value = initalValue.replace(/[^a-zA-z]*/g, '');
-    if ( initalValue !== this._el.nativeElement.value) {
-      event.stopPropagation();
-    }
+    
   }
 
 }

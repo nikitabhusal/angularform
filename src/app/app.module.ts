@@ -8,7 +8,7 @@ import { UserformComponent } from './components/userform/userform.component';
 import { NomineeFormComponent } from './components/nominee-form/nominee-form.component';
 import { DocumentComponent } from './components/document/document.component';
 import { FormDetailsComponent } from './components/form-details/form-details.component';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import { NumberDirective } from './directives/number.directive';
 import { NameDirective } from './directives/name.directive';
 

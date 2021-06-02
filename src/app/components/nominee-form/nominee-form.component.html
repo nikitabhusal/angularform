@@ -55,7 +55,7 @@
   <div class="row form-group pt-1 mb-4">
     <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">State: </label>
     <div class="col-sm-7 float-right">
-      <select class=" custom-select form-select " formControlName="state" (change)="changeState($event)">
+      <select class=" custom-select form-select " formControlName="state">
         <option selected>Select state</option>
         <option *ngFor="let state of states">
           {{state}}
