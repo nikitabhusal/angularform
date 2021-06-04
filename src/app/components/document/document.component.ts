@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DocumentComponent implements OnInit {
   documentForm: FormGroup;
-  // documentNames = ['Voter ID-Card', 'Passport', 'Adhaar card', 'PAN card', 'Birth certificate', 'Driving License', 'Other'];
+
   documentNames = [
     { key: 1, value: 'Voter ID-Card' },
     { key: 2, value: 'Passport' },

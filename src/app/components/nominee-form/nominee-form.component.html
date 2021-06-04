@@ -9,8 +9,6 @@
         </option>
       </select>
     </div>
-
-
     <div class=" form-group col-sm-4">
       <input type="text" class="form-control" formControlName="name" placeholder="First Name" nameOnly>
       <div *ngIf="getControl.name.touched && getControl.name.invalid" class="text-danger">
@@ -19,8 +17,6 @@
         <div *ngIf="getControl.name.errors.maxlength">Maximum length is 15.</div>
       </div>
     </div>
-
-
     <div class="form-group col-sm-4">
       <input type="text" class="form-control lastname" formControlName="lastname" placeholder="Last Name"  nameOnly>
       <div *ngIf="getControl.lastname.touched && getControl.lastname.invalid" class="text-danger">
@@ -30,8 +26,7 @@
       </div>
     </div>
   </div>
-
-  <div class="row form-group pt-1 mb-4">
+<div class="row form-group pt-1 mb-4">
     <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Address: </label>
     <div class="col-sm-7 float-right">
       <textarea class="form-control" formControlName="address" rows="3"></textarea>
@@ -40,9 +35,7 @@
       </div>
     </div>
   </div>
-
-
-  <div class="row form-group pt-1 mb-4">
+<div class="row form-group pt-1 mb-4">
     <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">City: </label>
     <div class="col-sm-7 float-right">
       <input type="text" class="form-control" formControlName="city">
@@ -63,8 +56,7 @@
       </select>
     </div>
   </div>
-
-  <div class="row form-group pt-1 mb-4">
+<div class="row form-group pt-1 mb-4">
     <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Pincode: </label>
     <div class="col-sm-7 float-right">
       <input type="text" class="form-control" formControlName="pincode" numbersOnly>
@@ -74,8 +66,7 @@
       </div>
     </div>
   </div>
-
-  <div class="separator mt-3 mb-2">Nominee Bank Details</div>
+<div class="separator mt-3 mb-2">Nominee Bank Details</div>
   <div class="row form-group pt-2 mb-4">
     <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Bank Name: </label>
     <div class="col-sm-7 float-right">
