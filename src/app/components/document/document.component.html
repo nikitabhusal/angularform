@@ -6,9 +6,9 @@
     <label class="col-sm-5 align-middle control-label mt-auto  mb-auto">Select Document: </label>
     <div class="col-sm-7 float-right">
       <select class=" custom-select form-select " formControlName="name" (change)="changeName($event)">
-        <option selected>Select Document</option>
-        <option *ngFor=" let document of documentNames">
-          {{document}}
+        <option selected value="">Select Document</option>
+        <option *ngFor=" let document of documentNames" [value]="document.key">
+          {{document.value}}
         </option>
       </select>
     </div>
@@ -51,9 +51,14 @@
     <tbody>
       <tr *ngFor="let doc of getDocs(); index as i">
         <th scope="row">{{i+1}}</th>
-        <td>{{doc.name}}</td>
-        <td>{{doc.filename}}</td>
-        <td><i class="fa fa-trash" aria-hidden="true" (click)="deleteDoc(i)"></i>
+        <td>{{documentNames[doc.name - 1].value}}</td>
+        <td colspan="2">
+          <table class="table">
+            <tr colspan="2" *ngFor="let fname of doc.filename; index as j">
+              <td>{{fname}}</td>
+              <td><i class="fa fa-trash" aria-hidden="true" (click)="deleteDoc(i,j)"></i> </td>
+            </tr>
+          </table>
         </td>
       </tr>
     </tbody>
@@ -61,6 +66,6 @@
 
   <div class="form-group text-center">
     <button [routerLink]="['/success']" class="btn  btn-primary btn-lg btn-block mt-3">Submit
-      </button>
+    </button>
   </div>
 </div>

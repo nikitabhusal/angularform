@@ -10,7 +10,16 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class DocumentComponent implements OnInit {
   documentForm: FormGroup;
-  documentNames = ['Voter ID-Card', 'Passport', 'Adhaar card', 'PAN card', 'Birth certificate', 'Driving License', 'Other'];
+  // documentNames = ['Voter ID-Card', 'Passport', 'Adhaar card', 'PAN card', 'Birth certificate', 'Driving License', 'Other'];
+  documentNames = [
+    { key: 1, value: 'Voter ID-Card' },
+    { key: 2, value: 'Passport' },
+    { key: 3, value: 'Aadhaar card' },
+    { key: 4, value: 'PAN card' },
+    { key: 5, value: 'Birth certificate' },
+    { key: 6, value: 'Driving License' },
+    { key: 7, value: 'Other' }
+  ];
   documents = [];
   fileReset;
   constructor(public formBuilder: FormBuilder,
@@ -20,7 +29,6 @@ export class DocumentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.documentNames.sort();
     this.documentForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       otherName: [''],
@@ -54,17 +62,13 @@ export class DocumentComponent implements OnInit {
     this.userService.addDocs(this.documentForm.value);
     console.log(this.isValidForm(), this.userService.getDocs());
     this.fileReset.value = '';
-    var index = this.documentNames.indexOf(this.documentForm.value.name);
-    if (index !== -1) {
-      this.documentNames.splice(index, 1);
-    }
+
     this.documentForm.reset();
-    // this.documentNames.sort();
 
   }
 
   showOtherName() {
-    return this.documentForm.value.name == 'Other'
+    return this.documentForm.value.name == 7
   }
 
   isValidForm() {
@@ -83,9 +87,7 @@ export class DocumentComponent implements OnInit {
     return this.userService.getDocs() || [];
   }
 
-  deleteDoc(index) {
-    this.documentNames.push(this.getDocs()[index].name);
-    this.userService.removeDocs(index);
-    this.documentNames.sort()
+  deleteDoc(i, j) {
+    this.userService.removeDocs(i, j);
   }
 }
